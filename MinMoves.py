@@ -45,4 +45,23 @@ class Solution:
             else:
                 continue
         return inc
-      
+
+#4th approach
+#using (n*largest) - sum(nums). This approach finds the maximum steps to make every element == to the largest. Then find the sum of the array to know the different.
+#The difference is the number of steps needed
+class Solution:
+    def minMoves(self, nums: List[int]) -> int:
+        largest = max(nums)
+        inc = (len(nums)*largest)-(sum(nums))
+        return inc
+
+#5th approach. Most optimal from Leetcode
+#This finds the largest number in the array and use the for loop to find the difference at every element, then update it to the answer
+class Solution:
+    def minMoves(self, nums: List[int]) -> int:
+        ans=0
+        a=max(nums)
+        for i  in nums:
+            ans+=(a-i)
+        return ans
+        
